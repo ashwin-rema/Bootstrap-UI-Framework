@@ -1,1 +1,8 @@
+#excludes the node modules
 node_modules
+
+#exclude CSS-1
+CSS-1
+
+# Ignore SASS config files
+.sass-cache
