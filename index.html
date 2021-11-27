@@ -235,6 +235,17 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
 
+                    <div class="btn-group" id="carouselButton">
+
+                        <button class="btn btn-danger btn-sm" id="carousel-pause">
+                            <span class="fa fa-pause"></span>
+                        </button>
+
+                        <button class="btn btn-danger btn-sm" id="carousel-play">
+                            <span class="fa fa-play"></span>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -288,7 +299,7 @@
             </div>
         </div>
 
-        <div class="row row-content align-items-center">
+        <!--<div class="row row-content align-items-center">
             <div class="col-12 offset-sm-2 col-sm-6">
                 <div class="card">
                     <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
@@ -345,7 +356,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <footer >
         <div class="container-fluid footer">
@@ -394,11 +405,30 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
     /**
+
+        // code for tooltip
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
         });
 
     **/
+
+        //code for pause and play button
+        $(document).ready(function(){
+            $("#mycarousel").carousel({ interval : 2000 });
+            $("#carousel-pause").click(function(){
+
+                $("#mycarousel").carousel("pause");
+
+            });
+
+
+            $("#carousel-play").click(function(){
+
+                $("#mycarousel").carousel("cycle");
+
+            });
+        })
     </script>
 </body>
 </html>
