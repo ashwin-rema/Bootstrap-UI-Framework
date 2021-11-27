@@ -66,4 +66,16 @@ body {
   bottom: 0px;
   z-index: 1;
 }
+
+.modal-header {
+  background: #512DA8;
+}
+
+.modal-header .close .closeIcon {
+  background-color: #fffaf0;
+}
+
+.modal-body {
+  background: #D1C4E9;
+}
 /*# sourceMappingURL=style-2.css.map */
