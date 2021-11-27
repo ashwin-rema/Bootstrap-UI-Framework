@@ -235,17 +235,10 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
 
-                    <div class="btn-group" id="carouselButton">
-
-                        <button class="btn btn-danger btn-sm" id="carousel-pause">
-                            <span class="fa fa-pause"></span>
-                        </button>
-
-                        <button class="btn btn-danger btn-sm" id="carousel-play">
-                            <span class="fa fa-play"></span>
-                        </button>
-                    </div>
-
+                    <button class="btn btn-danger btn-sm" id="carouselButton">
+                        <span id="carousel-button-icon" class="fa fa-pause"></span>
+                    </button>
+                        
                 </div>
             </div>
         </div>
@@ -299,65 +292,6 @@
             </div>
         </div>
 
-        <!--<div class="row row-content align-items-center">
-            <div class="col-12 offset-sm-2 col-sm-6">
-                <div class="card">
-                    <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
-                    <div class="card-body ">
-                        <form id="Reserve">
-
-                           <div class="form-group row">
-                               <label for="numberofguests" class="col-md-3 col-form-label">Number of Guests</label>
-                               <div class="col-md">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">1</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio1">2</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio1">3</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-                                    <label class="form-check-label" for="inlineRadio1">4</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-                                    <label class="form-check-label" for="inlineRadio5">5</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
-                                    <label class="form-check-label" for="inlineRadio6">6</label>
-                                </div>   
-                               </div>
-                           </div>
-
-                           <div class="form-group row">
-                               <label for="dateAndTime" class="col-md-3 col-form-label">Date and Time</label>
-                               <div class = "col-12 col-md-4">
-                                <input type="text" class="form-control" id="Date" name="Date" placeholder="Date">
-                               </div>
-                               <div class="col-12 col-md-4">
-                                <input type="text" class="form-control" id="Time" name="Time" placeholder="Time">
-                               </div>
-                           </div>
-
-                           <div class="form-group row">
-                               <div class="col-12 offset-md-3  col-md-9">
-                                   <button type="submit" class="btn btn-primary">Reserve</button>
-                               </div>
-                           </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-
     <footer >
         <div class="container-fluid footer">
             <div class="row address">             
@@ -404,31 +338,25 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
-    /**
 
-        // code for tooltip
+        //code for carousel button
+
         $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
+            $("#carouselButton").click(function(){
+                if ($("#carouselButton").children("span").hasClass('fa-pause')) {
+                    $("#mycarousel").carousel('pause');
+                    $("#carouselButton").children("span").removeClass('fa-pause');
+                    $("#carouselButton").children("span").addClass('fa-play');
+                }
+                else if ($("#carouselButton").children("span").hasClass('fa-play')){
+                    $("#mycarousel").carousel('cycle');
+                    $("#carouselButton").children("span").removeClass('fa-play');
+                    $("#carouselButton").children("span").addClass('fa-pause');                    
+                }
+            });
+
         });
 
-    **/
-
-        //code for pause and play button
-        $(document).ready(function(){
-            $("#mycarousel").carousel({ interval : 2000 });
-            $("#carousel-pause").click(function(){
-
-                $("#mycarousel").carousel("pause");
-
-            });
-
-
-            $("#carousel-play").click(function(){
-
-                $("#mycarousel").carousel("cycle");
-
-            });
-        })
     </script>
 </body>
 </html>
